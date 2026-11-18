@@ -148,9 +148,10 @@
   /* 07 what 1win gets */
   #last{background:radial-gradient(80% 60% at 50% 0%,#123a8f 0%,var(--felt) 42%,var(--ink) 100%)}
   .gets{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;text-align:left;margin-top:52px}
-  .gets div{padding:22px 20px;border-radius:18px;background:rgba(5,13,28,.62);border:1px solid rgba(232,197,122,.35)}
+  .gets div{padding:22px 20px;border-radius:18px;background:#071530;border:1px solid rgba(232,197,122,.35)}
   .gets b{display:block;font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:clamp(44px,4.6vw,78px);line-height:.95;color:var(--gold)}
   .gets span{display:block;margin-top:12px;font-size:clamp(15px,1.15vw,17px);line-height:1.35;color:rgba(255,255,255,.9)}
+  #last .inner{z-index:31}
   #last .fine{margin-top:34px}
 
   /* 07 buy-in */
@@ -189,7 +190,7 @@
     #chiphome{width:96px;height:96px;margin-top:18px}
     #hero .oval{width:150vw;aspect-ratio:.72;margin:calc(150vw / -1.44) 0 0 -75vw}
     .shot{border-radius:16px;aspect-ratio:4/3}
-    .spot span{font-size:10px;padding:5px 9px;left:20px}
+    .spot span{font-size:11px;padding:6px 10px;left:20px}
     .spot.l span{right:20px}
     #count .cap{bottom:54px}
     .door img{object-position:60% 50%}
@@ -350,7 +351,7 @@
       <div class="shot r d1">
         <img src="photos/brand.jpg" alt="Concept render: side view of the four riders at the 1win poker table in freefall, 1win on the table and the platform">
         <i class="spot s1" style="left:50%;top:55%"><span>Branding on table</span></i>
-        <i class="spot s2" style="left:56%;top:91.5%"><span>Branded platform</span></i>
+        <i class="spot s2 l" style="left:60%;top:91.5%"><span>Branded platform</span></i>
       </div>
     </div>
   </div>
@@ -462,6 +463,7 @@ document.querySelectorAll('.split').forEach(el=>{
 let countST=null;
 if(window.gsap&&window.ScrollTrigger&&!reduced){
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ignoreMobileResize:true});
   const rnd=gsap.utils.random;
 
   /* hero: letters are dealt in, then mucked off the felt as you scroll */

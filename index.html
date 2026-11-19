@@ -118,7 +118,7 @@
 
   /* 05 crew, dealt as cards */
   #crew{background:radial-gradient(80% 60% at 50% 100%,#123a8f 0%,var(--felt) 40%,var(--ink) 100%)}
-  .hand{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;margin-top:56px;perspective:1400px}
+  .hand{display:grid;grid-template-columns:repeat(9,1fr);gap:12px;margin-top:56px;perspective:1400px}
   .card{aspect-ratio:5/7;opacity:0;transform:translate(70vw,-60vh) rotate(38deg);transition:transform 1s cubic-bezier(.2,.85,.25,1),opacity .25s;transition-delay:calc(var(--i)*.13s)}
   .in .card{opacity:1;transform:rotate(var(--tilt,0deg))}
   .flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateY(180deg);transition:transform .9s cubic-bezier(.3,.8,.3,1);transition-delay:calc(var(--i)*.13s + .85s)}
@@ -172,9 +172,16 @@
   .suits span{opacity:0;transform:translateY(16px) rotate(-20deg);transition:all .6s cubic-bezier(.3,1.5,.5,1);transition-delay:calc(var(--i)*.09s)}
   .in .suits span{opacity:1;transform:none}
 
+  @media (min-width:1001px){
+    .face.front{padding:10% 5% 20%}
+    .face b{font-size:clamp(11px,1vw,14.5px);margin-top:9%}
+    .face em{font-size:clamp(11px,.9vw,13px)}
+    .idx{font-size:clamp(15px,1.5vw,21px)}
+    .idx.b{bottom:4%;right:7%}
+  }
   @media (max-width:1000px){
     #table .cols,#brand .cols{grid-template-columns:1fr;gap:34px}
-    .hand{grid-template-columns:repeat(4,1fr);gap:14px}
+    .hand{grid-template-columns:repeat(3,1fr);gap:14px}
     .gets{grid-template-columns:repeat(2,1fr)}
     .gets div:last-child{grid-column:1/-1}
     .face b{font-size:clamp(15px,2.6vw,24px)}.face em{font-size:clamp(14px,2.2vw,20px)}
@@ -195,6 +202,7 @@
     #count .cap{bottom:54px}
     .door img{object-position:60% 50%}
     .hand{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:38px}
+    .hand .card:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
     .face b{font-size:19px}.face em{font-size:16px}.idx{font-size:22px}.mono{font-size:28px}
     .gets{gap:10px;margin-top:34px}
     #reel{min-height:0}
@@ -307,6 +315,10 @@
       <div class="card" style="--i:7;--tilt:1.5deg"><div class="flip">
         <div class="face back">1win</div>
         <div class="face front"><span class="idx">A<small>♣</small></span><span class="idx b">A<small>♣</small></span><img src="photos/allie.jpg" alt="Allie Marx"><b>Allie Marx</b><em>Optional creator</em></div>
+      </div></div>
+      <div class="card" style="--i:8;--tilt:-1.5deg"><div class="flip">
+        <div class="face back">1win</div>
+        <div class="face front"><span class="idx">C<small>♠</small></span><span class="idx b">C<small>♠</small></span><img src="photos/carol.jpg" alt="Carol Chafauzer"><b>Carol Chafauzer</b><em>Optional creator</em></div>
       </div></div>
     </div>
     <p class="fine r d4">Dependent on budget approval and creator availability.</p>
